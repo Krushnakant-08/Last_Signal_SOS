@@ -1,0 +1,10 @@
+{
+  "name": "chip-neo6m",
+  "author": "Krushnakant",
+  "pins": [
+    "VCC",
+    "GND",
+    "TX",
+    "RX"
+  ]
+}

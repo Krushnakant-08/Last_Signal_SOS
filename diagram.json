@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "Anonymous Maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 200, "left": 400, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 238, "left": 230, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 268, "left": 230, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 298, "left": 230, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "ledR", "top": 335, "left": 50, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "ledG", "top": 335, "left": 100, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledB", "top": 335, "left": 150, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 450,
+      "left": 80,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-buzzer", "id": "buzz", "top": 530, "left": 250, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu", "top": 60, "left": 550, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled", "top": 60, "left": 720, "attrs": {} },
+    { "type": "chip-neo6m", "id": "gps", "top": 58.62, "left": 897.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:2", "r1:2", "red", [ "h-43.78", "v-4.65", "h-71.2" ] ],
+    [ "esp:3", "r2:2", "green", [ "h-53.78", "v15.75", "h-61.2" ] ],
+    [ "esp:0", "r3:2", "blue", [ "h-63.78", "v7.35", "h-51.2" ] ],
+    [ "r1:1", "ledR:A", "red", [ "h-15", "v165.35", "h-140", "v-32" ] ],
+    [ "r2:1", "ledG:A", "green", [ "h-22", "v128.35", "h-83", "v-25" ] ],
+    [ "r3:1", "ledB:A", "blue", [ "h-29", "v91.35", "h-26", "v-18" ] ],
+    [ "ledR:C", "ledG:C", "black", [ "v3", "h50", "v-3" ] ],
+    [ "ledG:C", "ledB:C", "black", [ "v6", "h50", "v-6" ] ],
+    [ "ledB:C", "esp:GND.2", "black", [ "v53", "h230", "v-162.5", "h8.78" ] ],
+    [ "btn:2.r", "esp:1", "orange", [ "h218", "v-176.1", "h38.78" ] ],
+    [ "btn:1.r", "esp:GND.4", "black", [ "h228", "v-137.9", "h28.78" ] ],
+    [ "buzz:2", "esp:10", "purple", [ "v16", "h98", "v-314.5", "h18.78" ] ],
+    [ "buzz:1", "esp:GND.5", "black", [ "v26", "h103", "v-286.1", "h23.78" ] ],
+    [ "esp:3V3.1", "imu:VCC", "red", [ "h-11.78", "v-215.1", "h232.4", "v51.78" ] ],
+    [ "esp:3V3.2", "oled:VCC", "red", [ "h-15.78", "v-220.7", "h386.6", "v48" ] ],
+    [ "esp:5V.1", "gps:VCC", "red", [ "h-19.78", "v-312.7", "h508", "v50", "h8" ] ],
+    [ "esp:GND.10", "imu:GND", "black", [ "h8.54", "v-189.5", "h114.8", "v35.78" ] ],
+    [ "esp:GND.9", "oled:GND", "black", [ "h16.54", "v-214.3", "h257", "v32" ] ],
+    [ "esp:GND.8", "gps:GND", "black", [ "h24.54", "v-239.1", "h370", "v43.6", "h14" ] ],
+    [ "esp:7", "gps:RX", "green", [ "h32.54", "v-244.7", "h451", "v30", "h-17.4" ] ],
+    [ "esp:6", "gps:TX", "orange", [ "h40.54", "v-250.3", "h448", "v35.6", "h-22.4" ] ],
+    [ "esp:5", "imu:SCL", "yellow", [ "h48.54", "v-255.9", "h65.2", "v15.78" ] ],
+    [ "esp:4", "imu:SDA", "blue", [ "h56.54", "v-261.5", "h47.6", "v11.78" ] ],
+    [ "imu:SDA", "oled:SDA", "blue", [ "v-7.78", "h198.2", "v8" ] ],
+    [ "imu:SCL", "oled:SCL", "yellow", [ "v-3.78", "h179", "v4" ] ]
+  ],
+  "dependencies": {}
+}
